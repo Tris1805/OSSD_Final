@@ -3,7 +3,7 @@ import threading
 
 # Khởi tạo socket server
 host = '127.0.0.1'
-port = 7777
+port = 7776
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((host, port))
 
@@ -74,8 +74,6 @@ def handle(client, address):
             reset_grid()
             broadcast('{}-{}-{}-{}-{}'.format("restart", "disconnect", players[0], acceptPlayer, ips).encode())
             print("Client disconnected")
-
-            # Xóa địa chỉ IP của client khỏi mảng ips
             
 
             # Xóa client khỏi danh sách clients và đóng kết nối

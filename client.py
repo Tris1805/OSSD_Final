@@ -24,7 +24,7 @@ def create_thread(target):
     thread.start()
 
 HOST = '127.0.0.1'
-PORT = 7777
+PORT = 7776
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((HOST, PORT))
 
@@ -54,12 +54,14 @@ def receive_data():
                     isStart = False
                     player = data[2]
                     acceptPlayer = data[3]
+                    connected_ip = data[4]
+                    print("Connected IP: " + connected_ip)
+                    if connected_ip:
+                        ip_display.update_connected_ips(connected_ip)
                 else:
                     acceptPlayer = data[1]
-                connected_ip = data[4]
-                print("Connected IP: " + connected_ip)
-                if connected_ip:
-                    ip_display.update_connected_ips(connected_ip)
+
+                    
                 print("Accept player: ", acceptPlayer)
                 if player == acceptPlayer:
                     turn = True
@@ -147,7 +149,6 @@ while running:
                     col = mouse_pos[0] // grid.cell_width
 
                     if 0 <= row < grid.rows and 0 <= col < grid.cols:
-
                         #print type
                         if not grid.is_box_empty(col, row):
                             messagebox.showinfo("Message", "Box is not empty")
