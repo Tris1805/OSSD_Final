@@ -2,8 +2,8 @@ import socket
 import threading
 
 # Khởi tạo socket server
-host = '127.0.0.1'
-port = 7776
+host = '0.0.0.0'
+port = 7777
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((host, port))
 

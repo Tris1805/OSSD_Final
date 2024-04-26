@@ -23,8 +23,8 @@ def create_thread(target):
     thread.daemon = True
     thread.start()
 
-HOST = '127.0.0.1'
-PORT = 7776
+HOST = '167.172.81.173'
+PORT = 7777
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((HOST, PORT))
 
